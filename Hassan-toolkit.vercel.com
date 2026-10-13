@@ -167,6 +167,7 @@
             font-size: 18px;
             cursor: pointer;
             color: var(--subtext-color);
+            align-items: center;
         }
 
         .hero-section {
@@ -215,19 +216,27 @@
             width: 100%;
         }
 
+        .tools-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
         .tool-card {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 18px;
             overflow: hidden;
             position: relative;
-            margin-bottom: 30px;
             backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
         }
 
         .tool-banner {
             position: relative;
-            height: 180px;
+            height: 130px;
             background: rgba(0,0,0,0.1);
             display: flex;
             justify-content: center;
@@ -237,16 +246,16 @@
 
         .tool-banner-bg {
             position: absolute;
-            width: 120px;
-            height: 120px;
+            width: 90px;
+            height: 90px;
             background: radial-gradient(circle, rgba(255,123,0,0.4) 0%, rgba(255,255,255,0.2) 100%);
-            filter: blur(25px);
+            filter: blur(20px);
             border-radius: 50%;
         }
 
         .tool-banner img {
-            width: 110px;
-            height: 110px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             z-index: 1;
             object-fit: cover;
@@ -254,42 +263,42 @@
 
         .star-icon {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 18px;
+            top: 10px;
+            right: 10px;
+            font-size: 15px;
             color: var(--subtext-color);
             z-index: 2;
         }
 
         .tool-content {
-            padding: 18px;
-        }
-
-        .tool-header-row {
+            padding: 12px;
             display: flex;
+            flex-direction: column;
+            flex-grow: 1;
             justify-content: space-between;
-            align-items: center;
-            margin-bottom: 6px;
         }
 
         .tool-title {
-            font-size: 18px;
+            font-size: 15px;
             font-weight: bold;
+            margin-bottom: 4px;
         }
 
-        .badge-vip {
-            background: #00e6a8;
-            color: #000;
-            font-size: 10px;
+        .badge-new {
+            background: #4a40ff;
+            color: #fff;
+            font-size: 9px;
             font-weight: bold;
-            padding: 3px 8px;
-            border-radius: 10px;
+            padding: 2px 6px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-bottom: 5px;
         }
 
         .tool-desc {
             color: var(--subtext-color);
-            font-size: 13px;
-            margin-bottom: 15px;
+            font-size: 11px;
+            margin-bottom: 10px;
         }
 
         .btn-launch {
@@ -297,26 +306,26 @@
             background: linear-gradient(90deg, #ff416c, #ff4b2b);
             border: none;
             color: white;
-            padding: 12px;
-            border-radius: 25px;
+            padding: 8px;
+            border-radius: 20px;
             font-weight: bold;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 12px;
         }
 
         .connect-section {
-            margin-top: 35px;
+            margin-top: 20px;
         }
 
         .section-title {
             text-align: center;
-            font-size: 22px;
+            font-size: 20px;
             font-weight: bold;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .connect-grid {
@@ -362,13 +371,30 @@
         .connect-info h4 { font-size: 15px; margin-bottom: 2px; }
         .connect-info p { font-size: 11px; color: var(--subtext-color); letter-spacing: 1px; }
 
-        /* Notifications Modal / Popup */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            text-decoration: none;
+        }
+
         .notif-modal {
             display: none;
             position: fixed;
             top: 70px;
             right: 15px;
-            width: 320px;
+            width: 300px;
             background: var(--bg-color);
             border: 1px solid var(--card-border);
             border-radius: 14px;
@@ -385,6 +411,7 @@
             margin-bottom: 12px;
             border-bottom: 1px solid var(--card-border);
             padding-bottom: 8px;
+            font-size: 14px;
         }
 
         .notif-item {
@@ -403,7 +430,6 @@
             margin-top: 4px;
         }
 
-        /* Tool Modal */
         .modal {
             display: none;
             position: fixed;
@@ -417,7 +443,174 @@
             padding: 20px 15px;
         }
 
-        .modal-header {
+        .terminal-window {
+            background: #0f131f;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            max-width: 440px;
+            margin: 20px auto;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+        }
+
+        .terminal-topbar {
+            background: #161b2b;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27c93f; }
+
+        .terminal-path {
+            font-size: 11px;
+            color: #666;
+            font-family: monospace;
+        }
+
+        .terminal-close {
+            cursor: pointer;
+            color: #ff4757;
+            font-size: 16px;
+        }
+
+        .terminal-body {
+            padding: 20px;
+        }
+
+        .terminal-logo-area {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .terminal-brand {
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 5px;
+        }
+
+        .terminal-subtitle {
+            font-size: 11px;
+            color: #777;
+            font-family: monospace;
+            margin-top: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .terminal-label {
+            font-size: 11px;
+            color: #00e6a8;
+            font-family: monospace;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .terminal-input-wrap {
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .terminal-input-wrap span {
+            color: #00e6a8;
+            font-weight: bold;
+            font-family: monospace;
+        }
+
+        .terminal-input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+            width: 100%;
+            font-size: 13px;
+        }
+
+        .btn-terminal {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(90deg, #ff416c, #ff4b2b);
+            border: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(255, 65, 108, 0.4);
+        }
+
+        .community-divider {
+            text-align: center;
+            border-top: 1px dashed rgba(255,255,255,0.1);
+            margin: 20px 0 15px 0;
+            position: relative;
+        }
+
+        .community-divider span {
+            position: relative;
+            top: -9px;
+            background: #0f131f;
+            padding: 0 10px;
+            font-size: 10px;
+            color: #666;
+            letter-spacing: 1px;
+        }
+
+        .terminal-comm-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 11px;
+            border-radius: 8px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .terminal-footer {
+            text-align: center;
+            font-size: 10px;
+            color: #555;
+            margin-top: 15px;
+            font-family: monospace;
+        }
+
+        .terminal-footer span {
+            color: #ff4757;
+        }
+
+        .standard-modal-header {
             background: var(--card-bg);
             padding: 15px;
             border-radius: 12px;
@@ -440,31 +633,6 @@
             color: #25D366;
             font-size: 13px;
             margin-top: 5px;
-        }
-
-        .tab-buttons {
-            display: flex;
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 4px;
-            margin-bottom: 15px;
-            border: 1px solid var(--card-border);
-        }
-
-        .tab-btn {
-            flex: 1;
-            padding: 10px;
-            border: none;
-            background: transparent;
-            color: var(--subtext-color);
-            font-weight: bold;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-
-        .tab-btn.active {
-            background: var(--card-border);
-            color: var(--text-color);
         }
 
         .form-box {
@@ -546,7 +714,6 @@
 
     <div class="ambient-glow"></div>
 
-    <!-- Intro Loading Screen -->
     <div id="intro-screen">
         <div class="logo-ring-container">
             <div class="spinner-ring"></div>
@@ -557,7 +724,6 @@
         <div class="intro-sub">PRO TOOLS FOR DEVELOPERS</div>
     </div>
 
-    <!-- Main Dashboard UI -->
     <div class="container">
         <header>
             <div class="header-brand">
@@ -565,20 +731,17 @@
                 <div class="header-title">HASSAN TOOLS</div>
             </div>
             <div class="header-icons">
-                <i id="theme-toggle" class="fa-regular fa-moon" onclick="toggleTheme()" title="Toggle Day/Night Mode"></i>
-                <i class="fa-regular fa-bell" onclick="toggleNotifications()" title="Updates & Notifications"></i>
+                <i id="theme-toggle" class="fa-regular fa-moon" onclick="toggleTheme()" title="Toggle Theme"></i>
+                <i class="fa-regular fa-bell" onclick="toggleNotifications()" title="Notifications"></i>
             </div>
         </header>
 
-        <!-- Notifications Dropdown Box -->
         <div id="notif-dropdown" class="notif-modal">
             <div class="notif-header">
                 <span>Updates & Notifications</span>
                 <i class="fa-solid fa-xmark" style="cursor:pointer;" onclick="toggleNotifications()"></i>
             </div>
-            <div id="notif-list">
-                <!-- Notifications dynamically loaded here with 24-hr auto-expiry -->
-            </div>
+            <div id="notif-list"></div>
         </div>
 
         <div class="hero-section">
@@ -596,26 +759,44 @@
             <input type="text" placeholder="Search tools...">
         </div>
 
-        <!-- Tool Card -->
-        <div class="tool-card">
-            <div class="tool-banner">
-                <div class="tool-banner-bg"></div>
-                <i class="fa-regular fa-star star-icon"></i>
-                <img src="https://i.postimg.cc/nLx4FJKr/1000005452.png" alt="Tool Logo">
-            </div>
-            <div class="tool-content">
-                <div class="tool-header-row">
-                    <div class="tool-title">GIT & YT INFO</div>
-                    <span class="badge-vip">VIP</span>
+        <div class="tools-grid">
+            <div class="tool-card">
+                <div class="tool-banner">
+                    <div class="tool-banner-bg"></div>
+                    <i class="fa-regular fa-star star-icon"></i>
+                    <img src="https://i.postimg.cc/nLx4FJKr/1000005452.png" alt="Logo">
                 </div>
-                <div class="tool-desc">Github & YouTube info</div>
-                <button class="btn-launch" onclick="openToolModal()">
-                    <i class="fa-solid fa-rocket"></i> Launch
-                </button>
+                <div class="tool-content">
+                    <div>
+                        <div class="tool-title">GIT & YT INFO</div>
+                        <span class="badge-new">VIP</span>
+                        <div class="tool-desc">Github & YouTube info fetcher.</div>
+                    </div>
+                    <button class="btn-launch" onclick="openModal('git-modal')">
+                        <i class="fa-solid fa-rocket"></i> Launch
+                    </button>
+                </div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-banner">
+                    <div class="tool-banner-bg"></div>
+                    <i class="fa-regular fa-star star-icon"></i>
+                    <img src="https://i.postimg.cc/nLx4FJKr/1000005452.png" alt="Logo">
+                </div>
+                <div class="tool-content">
+                    <div>
+                        <div class="tool-title">TikTok DL</div>
+                        <span class="badge-new">NEW</span>
+                        <div class="tool-desc">TikTok Video downloader.</div>
+                    </div>
+                    <button class="btn-launch" onclick="openModal('tt-modal')">
+                        <i class="fa-solid fa-rocket"></i> Launch
+                    </button>
+                </div>
             </div>
         </div>
 
-        <!-- Social Connects -->
         <div class="connect-section">
             <div class="section-title">Connect With Us</div>
             <div class="connect-grid">
@@ -666,44 +847,85 @@
         </div>
     </div>
 
-    <!-- Tool Screen (GitHub & YouTube) -->
-    <div id="tool-modal" class="modal">
-        <div class="modal-header">
-            <span class="modal-close" onclick="closeToolModal()">&times;</span>
-            <div style="font-weight: bold; font-size: 18px;">HASSAN <span style="color:#ff4757;">TOOLS</span></div>
+    <a href="https://wa.me/+923372938160" target="_blank" class="whatsapp-float">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <div id="git-modal" class="modal">
+        <div class="standard-modal-header">
+            <span class="modal-close" onclick="closeModal('git-modal')">&times;</span>
+            <div style="font-weight: bold; font-size: 16px;">/HASSAN TOOLS / GIT & YT</div>
             <div class="dev-num"><i class="fa-brands fa-whatsapp"></i> Dev: +92337 2938 160</div>
         </div>
 
-        <div class="tab-buttons">
-            <button id="tab-git-btn" class="tab-btn active" onclick="switchTab('git')"><i class="fa-brands fa-github"></i> GitHub Analyzer</button>
-            <button id="tab-yt-btn" class="tab-btn" onclick="switchTab('yt')"><i class="fa-brands fa-youtube"></i> YT Info Fetcher</button>
+        <div class="form-box">
+            <input type="text" id="github-user" class="input-field" placeholder="GitHub Username (e.g. hassan-ff-max)">
+            <input type="text" id="github-token" class="input-field" placeholder="Personal Access Token (Optional)">
+            <button class="btn-action" onclick="fetchGitHubData()"><i class="fa-solid fa-magnifying-glass"></i> Analyze GitHub</button>
         </div>
-
-        <!-- GitHub Section -->
-        <div id="git-tab-content">
-            <div class="form-box">
-                <input type="text" id="github-user" class="input-field" placeholder="GitHub Username (e.g. hassan-ff-max)">
-                <input type="text" id="github-token" class="input-field" placeholder="Personal Access Token (Optional)">
-                <button class="btn-action" onclick="fetchGitHubData()"><i class="fa-solid fa-magnifying-glass"></i> Analyze</button>
-            </div>
-            <div id="git-loader" style="display:none; text-align:center; padding: 15px; color:#ff7b00;">
-                <i class="fa-solid fa-spinner fa-spin"></i> CRUNCHING GITHUB DATA...
-            </div>
-            <div id="git-results" class="result-box"></div>
+        <div id="git-loader" style="display:none; text-align:center; padding: 15px; color:#ff7b00;">
+            <i class="fa-solid fa-spinner fa-spin"></i> CRUNCHING GITHUB DATA...
         </div>
+        <div id="git-results" class="result-box"></div>
 
-        <!-- YouTube Section -->
-        <div id="yt-tab-content" style="display:none;">
-            <div class="form-box">
-                <input type="text" id="yt-link" class="input-field" placeholder="Paste YouTube Video Link...">
-                <button class="btn-action" style="background:#ff4757;" onclick="fetchYTData()"><i class="fa-solid fa-magnifying-glass"></i> Fetch Info</button>
+        <div class="form-box" style="margin-top: 20px;">
+            <input type="text" id="yt-link" class="input-field" placeholder="Paste YouTube Video Link...">
+            <button class="btn-action" style="background:#ff4757;" onclick="fetchYTData()"><i class="fa-solid fa-magnifying-glass"></i> Fetch YouTube Info</button>
+        </div>
+        <div id="yt-results" class="result-box"></div>
+    </div>
+
+    <div id="tt-modal" class="modal">
+        <div class="terminal-window">
+            <div class="terminal-topbar">
+                <div class="terminal-dots">
+                    <div class="dot dot-red"></div>
+                    <div class="dot dot-yellow"></div>
+                    <div class="dot dot-green"></div>
+                </div>
+                <div class="terminal-path">~/hassan-tools/tiktok-dl</div>
+                <div class="terminal-close" onclick="closeModal('tt-modal')">&times;</div>
             </div>
-            <div id="yt-results" class="result-box"></div>
+
+            <div class="terminal-body">
+                <div class="terminal-logo-area">
+                    <div class="terminal-brand"><i class="fa-brands fa-tiktok" style="color:#ff416c;"></i> HASSAN TOOLS</div>
+                    <div class="terminal-subtitle">// TIKTOK DOWNLOADER, NO WATERMARK</div>
+                </div>
+
+                <label class="terminal-label">> PASTE TIKTOK URL</label>
+                <div class="terminal-input-wrap">
+                    <span>$</span>
+                    <input type="text" id="tt-url" class="terminal-input" placeholder="https://vm.tiktok.com/...">
+                </div>
+
+                <button class="btn-terminal" onclick="fetchTikTokData()"><i class="fa-solid fa-download"></i> FETCH VIDEO</button>
+
+                <div id="tt-loader" style="display:none; text-align:center; padding: 15px; color:#ff7b00; font-family:monospace; font-size:12px;">
+                    <i class="fa-solid fa-spinner fa-spin"></i> FETCHING TIKTOK VIDEO...
+                </div>
+                
+                <!-- Professional Video Player & Options Result Box -->
+                <div id="tt-results" class="result-box" style="margin-top: 15px;"></div>
+
+                <div class="community-divider"><span>COMMUNITY</span></div>
+
+                <a href="https://whatsapp.com/channel/0029VbDRJh789ine9bjCVF3m" target="_blank" class="terminal-comm-btn">
+                    <i class="fa-brands fa-whatsapp" style="color: #25D366; font-size: 18px;"></i> WhatsApp
+                </a>
+
+                <a href="https://t.me/hassan1updates" target="_blank" class="terminal-comm-btn">
+                    <i class="fa-brands fa-telegram" style="color: #229ED9; font-size: 18px;"></i> Telegram
+                </a>
+
+                <div class="terminal-footer">
+                    powered by <span>hassan tools</span>
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
-        // Intro Screen Timer
         window.addEventListener('load', () => {
             setTimeout(() => {
                 const intro = document.getElementById('intro-screen');
@@ -713,7 +935,6 @@
             loadNotifications();
         });
 
-        // Day/Night Theme Toggle
         function toggleTheme() {
             document.body.classList.toggle('light-mode');
             const themeIcon = document.getElementById('theme-toggle');
@@ -726,7 +947,6 @@
             }
         }
 
-        // Notification System with 24-Hour Auto Expiry
         function toggleNotifications() {
             const dropdown = document.getElementById('notif-dropdown');
             dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
@@ -734,15 +954,12 @@
 
         function loadNotifications() {
             let updates = JSON.parse(localStorage.getItem('hassan_updates')) || [
-                { title: "🚀 Git & YT Info Tool Added!", time: Date.now() - 3600000 }, // 1 hour ago
-                { title: "⚡ HASSAN TOOLS v1.0 Live Released", time: Date.now() - 7200000 } // 2 hours ago
+                { title: "🚀 TikTok Downloader Tool Added!", time: Date.now() - 3600000 },
+                { title: "⚡ HASSAN TOOLS v1.0 Live Released", time: Date.now() - 7200000 }
             ];
 
-            // Filter out notifications older than 24 hours (86400000 ms)
             const currentTime = Date.now();
             updates = updates.filter(item => (currentTime - item.time) < 86400000);
-
-            // Save filtered updates back
             localStorage.setItem('hassan_updates', JSON.stringify(updates));
 
             const listContainer = document.getElementById('notif-list');
@@ -764,26 +981,12 @@
             listContainer.innerHTML = html;
         }
 
-        function openToolModal() {
-            document.getElementById('tool-modal').style.display = 'block';
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
         }
 
-        function closeToolModal() {
-            document.getElementById('tool-modal').style.display = 'none';
-        }
-
-        function switchTab(type) {
-            if(type === 'git') {
-                document.getElementById('git-tab-content').style.display = 'block';
-                document.getElementById('yt-tab-content').style.display = 'none';
-                document.getElementById('tab-git-btn').classList.add('active');
-                document.getElementById('tab-yt-btn').classList.remove('active');
-            } else {
-                document.getElementById('git-tab-content').style.display = 'none';
-                document.getElementById('yt-tab-content').style.display = 'block';
-                document.getElementById('tab-git-btn').classList.remove('active');
-                document.getElementById('tab-yt-btn').classList.add('active');
-            }
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
         }
 
         async function fetchGitHubData() {
@@ -792,10 +995,7 @@
             const loader = document.getElementById('git-loader');
             const resBox = document.getElementById('git-results');
 
-            if(!username) {
-                alert('Please enter GitHub username');
-                return;
-            }
+            if(!username) { alert('Please enter GitHub username'); return; }
 
             loader.style.display = 'block';
             resBox.style.display = 'none';
@@ -806,14 +1006,9 @@
             try {
                 const uRes = await fetch(`https://api.github.com/users/${username}`, { headers });
                 const uData = await uRes.json();
+                if(uData.message === "Not Found") { loader.style.display = 'none'; alert('User not found!'); return; }
 
-                if(uData.message === "Not Found") {
-                    loader.style.display = 'none';
-                    alert('User not found!');
-                    return;
-                }
-
-                const rRes = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=10`, { headers });
+                const rRes = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=5`, { headers });
                 const rData = await rRes.json();
 
                 loader.style.display = 'none';
@@ -834,38 +1029,23 @@
                     <div class="stats-grid">
                         <div class="stat-card"><h3>${uData.followers}</h3><p>FOLLOWERS</p></div>
                         <div class="stat-card"><h3>${uData.public_repos}</h3><p>REPOS</p></div>
-                        <div class="stat-card"><h3>${uData.following}</h3><p>FOLLOWING</p></div>
-                        <div class="stat-card"><h3>${uData.created_at.split('T')[0]}</h3><p>JOINED</p></div>
                     </div>
                     <div style="margin-top:15px; font-weight:bold; font-size:14px;"><i class="fa-solid fa-book"></i> Top Repositories</div>
-                    ${reposHTML || '<p style="font-size:12px; color:var(--subtext-color);">No public repos.</p>'}
+                    ${reposHTML}
                 `;
-            } catch(e) {
-                loader.style.display = 'none';
-                alert('Error fetching data.');
-            }
+            } catch(e) { loader.style.display = 'none'; alert('Error fetching github data.'); }
         }
 
         function fetchYTData() {
             const link = document.getElementById('yt-link').value.trim();
             const resBox = document.getElementById('yt-results');
-
-            if(!link) {
-                alert('Please enter video link');
-                return;
-            }
+            if(!link) { alert('Please enter video link'); return; }
 
             let videoId = '';
-            if(link.includes('v=')) {
-                videoId = link.split('v=')[1].split('&')[0];
-            } else if(link.includes('youtu.be/')) {
-                videoId = link.split('youtu.be/')[1].split('?')[0];
-            }
+            if(link.includes('v=')) videoId = link.split('v=')[1].split('&')[0];
+            else if(link.includes('youtu.be/')) videoId = link.split('youtu.be/')[1].split('?')[0];
 
-            if(!videoId) {
-                alert('Invalid YouTube URL');
-                return;
-            }
+            if(!videoId) { alert('Invalid YouTube URL'); return; }
 
             resBox.style.display = 'block';
             resBox.innerHTML = `
@@ -874,6 +1054,50 @@
                 <p style="font-size:12px; color:var(--subtext-color); margin-top:5px;">Video ID: ${videoId}</p>
                 <a href="https://img.youtube.com/vi/${videoId}/maxresdefault.jpg" target="_blank" style="display:block; margin-top:10px; color:#ff4757; text-decoration:none; font-weight:bold; font-size:13px;"><i class="fa-solid fa-download"></i> View HD Thumbnail</a>
             `;
+        }
+
+        async function fetchTikTokData() {
+            const url = document.getElementById('tt-url').value.trim();
+            const loader = document.getElementById('tt-loader');
+            const resBox = document.getElementById('tt-results');
+
+            if(!url) { alert('Please paste TikTok URL'); return; }
+
+            loader.style.display = 'block';
+            resBox.style.display = 'none';
+
+            try {
+                const response = await fetch(`https://tikwm.com/api/?url=${encodeURIComponent(url)}`);
+                const res = await response.json();
+
+                loader.style.display = 'none';
+
+                if(res.code !== 0 || !res.data) {
+                    alert('Failed to fetch TikTok video. Check URL.');
+                    return;
+                }
+
+                const data = res.data;
+                resBox.style.display = 'block';
+                resBox.innerHTML = `
+                    <div style="margin-bottom: 15px; text-align: center;">
+                        <video controls style="width: 100%; max-height: 240px; border-radius: 8px; background: #000;">
+                            <source src="${data.play}" type="video/mp4">
+                            Your browser does not support video tag.
+                        </video>
+                    </div>
+                    <h4 style="font-size: 12px; margin-bottom: 12px; color: #fff; text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${data.title || 'TikTok Video'}</h4>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <a href="${data.play}" target="_blank" class="btn-terminal" style="text-align: center; text-decoration: none; display: block; background: #27c93f; font-size: 11px; padding: 10px;"><i class="fa-solid fa-download"></i> Download Without Watermark</a>
+                        <a href="${data.hdplay || data.play}" target="_blank" class="btn-terminal" style="text-align: center; text-decoration: none; display: block; background: #ffbd2e; color: #000; font-size: 11px; padding: 10px;"><i class="fa-solid fa-video"></i> Download In HD</a>
+                        <a href="${data.wmplay || data.play}" target="_blank" class="btn-terminal" style="text-align: center; text-decoration: none; display: block; background: #ff5f56; font-size: 11px; padding: 10px;"><i class="fa-solid fa-water"></i> Download With Watermark</a>
+                        <a href="${data.music}" target="_blank" class="btn-terminal" style="text-align: center; text-decoration: none; display: block; background: #229ED9; font-size: 11px; padding: 10px;"><i class="fa-solid fa-music"></i> Download MP4 (Audio)</a>
+                    </div>
+                `;
+            } catch(err) {
+                loader.style.display = 'none';
+                alert('Network error while fetching TikTok data.');
+            }
         }
     </script>
 </body>
